@@ -1,0 +1,90 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+ @import "./products.scss";
+ @import "./store";
+
+.environment-info {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 200px;
+  margin-left: -100px;
+  padding: 10px;
+  border: 2px solid #80b2d3;
+  background-color: #fff;
+  text-align: center;
+  color: #80b2d3;
+
+  a, a:visited {
+    color: #80b2d3;
+    text-decoration: none;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+}
+
+table.environment-variables {
+  word-break: break-all;
+
+  .name {
+    width: 300px;
+  }
+}
+#banner {
+  background: #9c9;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid;
+  font: small-caps 40px/40px "Times New Roman", serif;
+  color: #282;
+  text-align: center;
+}
+
+#banner img {
+  float: left;
+  height: 50px;
+  width: 50px;
+}
+
+#main {
+  margin-left: 17em;
+  padding-top: 4ex;
+  padding-left: 2em;
+  background: white;
+}
+#content{
+  margin-top: 0px;
+}
+#side {
+  float: left;
+  padding-top: 1em;
+  padding-left: 1em;
+  padding-bottom: 1em;
+  width: 16em;
+  height:500px;
+}
+
+#side a {
+  display: block;
+  padding: 5px 10px;
+  color: rgb(1, 9, 117);
+  font-size: small;
+  text-decoration: none;
+  &:hover{
+    background: rgb(4, 98, 110);
+    color:white;
+  }
+}
