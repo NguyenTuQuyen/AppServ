@@ -1,16 +1,17 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Book store</title>
-
+  <title>Clother store</title>
   <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
+  <script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
 </head>
 <body id="store">
     <div id="banner">
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Books Store" %>
+    <%= @page_title || "Clother Store" %>
     </div>
     <div id="columns">
       <div id="side">
@@ -19,7 +20,9 @@
         <a href="#">News</a><br />
         <a href="#">Contact</a><br />
         <div id="cart">
+          <%= hide_cart_if(current_cart.line_items.empty?, :id => "cart") do %>
           <%= render current_cart %>
+          <% end %>
         </div>
       </div>
       <div id="content">

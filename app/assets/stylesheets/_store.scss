@@ -66,3 +66,31 @@
     border-bottom: 1px dotted #595;
     margin-bottom: 10px;
 }
+/* Order form style */
+.store_form fieldset {
+    background: #efe;
+}
+ 
+.store_form legend {
+    color: #dfd;
+    background: #141;
+    font-family: sans-serif;
+    padding: 0.2em 1em;
+}
+ 
+.store_form label {
+    width: 5em;
+    float: left;
+    text-align: right;
+    padding-top: 20px;
+    margin-right: 10px;
+    display: block;
+    
+}
+.form-actions {
+    margin-left: 75px !important;
+}
+ 
+.store_form div {
+    margin: 0.5em 0;
+}
