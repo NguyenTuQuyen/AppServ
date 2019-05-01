@@ -3,7 +3,10 @@ class CartsController < ApplicationController
 
   # GET /carts
   def index
-    @carts = Cart.all
+    @carts = []
+    if session[:cart_id] != nil
+      @carts << Cart.find_by_id(session[:cart_id])
+    end
   end
 
   # GET /carts/1
@@ -41,8 +44,13 @@ class CartsController < ApplicationController
 
   # DELETE /carts/1
   def destroy
+    @cart = current_cart
     @cart.destroy
-    redirect_to carts_url, notice: 'Cart was successfully destroyed.'
+    session[:cart_id] = nil
+    respond_to do |format|
+      format.html { redirect_to '/', notice: 'Cart was successfully destroyed'}
+      format.json { head :no_content }
+    end
   end
 
   private

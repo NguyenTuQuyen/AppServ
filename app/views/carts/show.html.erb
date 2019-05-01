@@ -1,4 +1,7 @@
-<p id="notice"><%= notice %></p>
+<%= render @cart %>
 
+
+<% if false #just add comment but don't want to delete%>  
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
+<% end %>
