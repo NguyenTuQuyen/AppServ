@@ -1,0 +1,24 @@
+// Place all the styles related to the Users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.user_form fieldset {
+    background: #efe;
+}
+ 
+.user_form legend {
+    color: #dfd;
+    background: #141;
+    font-family: sans-serif;
+    padding: 0.2em 1em;
+}
+ 
+.user_form label {
+    float: left;
+    margin-right: 10px;
+    display: block;
+    
+}
+ 
+.user_form div {
+    margin: 0.5em 0;
+}

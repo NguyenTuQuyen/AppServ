@@ -16,6 +16,7 @@ gem 'jquery-rails'
 gem 'sass-rails'
 gem 'coffee-rails'
 gem 'uglifier'
+gem 'will_paginate', '>=3.0'
 
 platform :ruby do
   gem 'mysql2'

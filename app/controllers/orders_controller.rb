@@ -3,7 +3,7 @@ class OrdersController < ApplicationController
 
   # GET /orders
   def index
-    @orders = Order.all
+    @orders = Order.paginate(page: params[:page], :per_page => 10).order('created_at DESC')
   end
 
   # GET /orders/1
@@ -32,6 +32,7 @@ class OrdersController < ApplicationController
       if @order.save
           Cart.destroy(session[:cart_id])
           session[:cart_id] = nil
+          Notifier.order_received(@order).deliver
 
           format.html { redirect_to '/', notice: 'Thank you for your order' }
           format.json { render :show, status: :created, location: @order }
