@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-<h2>Your cart</h2>
+<h2><%= t('.title') %></h2>
 
 <table>
     <%= render cart.line_items %>    
@@ -8,11 +8,11 @@
         <td class="total_cell"><%= number_to_currency(cart.total_price) %></td>
     </tr>
 </table>
-<%= button_to 'Checkout',
+<%= button_to t('.checkout'),
     new_order_path,
     :method => :get %>
     <br>
-<%= button_to 'Empty cart',
+<%= button_to t('.empty_cart'),
     cart,
     :method => :delete,
     data: {:confirm => 'Are you sure?'}

@@ -10,15 +10,33 @@
 </head>
 <body id="store">
     <div id="banner">
+    <%= form_tag '/', :class => 'locale', :method => :get do %>
+      <%= select_tag 'set_locale',
+          options_for_select(LANGUAGES, I18n.locale.to_s),
+          :onchange => 'this.form.submit()' %>         
+    <% end %>
     <%= image_tag("logo.png") %>
-    <%= @page_title || "Clother Store" %>
+    <%= @page_title || t('.title') %>
     </div>
     <div id="columns">
       <div id="side">
-        <a href="#">Home</a><br />
-        <a href="#">FAQ</a><br />
-        <a href="#">News</a><br />
-        <a href="#">Contact</a><br />
+        <%= link_to t('.home'), '/' %><br />
+        <a href="#"><%= t('.faq') %></a><br />
+        <a href="#"><%= t('.news') %></a><br />
+        <a href="#"><%= t('.contact') %></a><br />
+
+        <% if session[:user_id] %>
+            <br/>
+            <%= link_to 'Orders', '/orders' %><br />
+            <%= link_to 'Products', '/products' %><br />
+            <%= link_to 'Users', '/users' %><br />
+            <%= button_to 'Logout', '/logout', :method => :delete %>
+            <br/>
+        <% else %>
+            <br/>
+            <%= link_to 'Log In', login_path %><br />
+        <% end %>
+
         <div id="cart">
           <%= hide_cart_if(current_cart.line_items.empty?, :id => "cart") do %>
           <%= render current_cart %>

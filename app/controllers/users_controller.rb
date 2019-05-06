@@ -47,8 +47,16 @@ class UsersController < ApplicationController
 
   # DELETE /users/1
   def destroy
-    @user.destroy
-    redirect_to users_url, notice: 'User was successfully destroyed.'
+    begin
+      @user.destroy
+      flash[:notice] = "User #{@user.name} deleted"
+    rescue Exception => e
+        flash[:notice] = e.message
+    end
+    respond_to do |format|
+        format.html { redirect_to users_url }
+        format.json { head :no_content }
+    end
   end
 
   private
